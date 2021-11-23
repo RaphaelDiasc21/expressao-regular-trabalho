@@ -1,0 +1,6 @@
+//expressao simples
+10+15
+//expressao mais complexa
+(7^2)*5*(100/5)
+//expressao invalida
+(3+7

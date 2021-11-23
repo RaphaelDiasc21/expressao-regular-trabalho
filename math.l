@@ -69,7 +69,7 @@
 	}
 }
 "\n" {
-
+	printf("linha: %d \n", linha);
 	if (is_valid == 1 && topo == -1 && topo_valid == 1 && is_aberto == 0) { 
 		int result;
 		int is_first = 1;
@@ -99,9 +99,13 @@
 		}
 		
 		aux_operator = operators_index;
-
-        printf("Expressao valida\n"); 
-		printf("Resultado: %d\n\n", result);  
+		if(is_comment == 1) {
+			printf("Comentario valido\n\n"); 
+		} else {
+			printf("Expressao valida\n"); 
+			printf("Resultado: %d\n\n", result); 
+		}
+        result = 0;
     } 
     else
         printf("Expressao invalida\n\n"); 
@@ -113,6 +117,7 @@
 	topo = -1;
 	l = 0;
 	j = 0;
+	
 } 
 %% 
   

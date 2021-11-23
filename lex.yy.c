@@ -693,7 +693,7 @@ case 6:
 YY_RULE_SETUP
 #line 71 "math.l"
 {
-
+	printf("linha: %d \n", linha);
 	if (is_valid == 1 && topo == -1 && topo_valid == 1 && is_aberto == 0) { 
 		int result;
 		int is_first = 1;
@@ -723,9 +723,13 @@ YY_RULE_SETUP
 		}
 		
 		aux_operator = operators_index;
-
-        printf("Expressao valida\n"); 
-		printf("Resultado: %d\n\n", result);  
+		if(is_comment == 1) {
+			printf("Comentario valido\n\n"); 
+		} else {
+			printf("Expressao valida\n"); 
+			printf("Resultado: %d\n\n", result); 
+		}
+        result = 0;
     } 
     else
         printf("Expressao invalida\n\n"); 
@@ -737,14 +741,15 @@ YY_RULE_SETUP
 	topo = -1;
 	l = 0;
 	j = 0;
+	
 } 
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 117 "math.l"
+#line 122 "math.l"
 ECHO;
 	YY_BREAK
-#line 748 "lex.yy.c"
+#line 753 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1630,7 +1635,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 117 "math.l"
+#line 122 "math.l"
 
   
   
